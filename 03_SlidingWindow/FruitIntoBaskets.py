@@ -6,8 +6,10 @@ Problem: Fruits into Baskets
 - Write a function to return the maximum number of fruits in both the baskets.
 
 '''
+from typing import List
 
-def total_fruit(fruits):
+
+def total_fruit(fruits: List[int]) -> int:
     baskets = {}
     max_fruits = 0
     left = 0
@@ -39,6 +41,7 @@ def main():
         print("Input: ", fruits)
         print("Output: ", total_fruit(fruits))
         print("-"*50)
+
 
 if __name__ == '__main__':
     main()
