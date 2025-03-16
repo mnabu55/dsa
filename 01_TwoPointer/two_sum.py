@@ -68,14 +68,5 @@ def main():
         assert actual == expect
 
 
-def test_two_sum():
-    assert two_sum([2, 7, 11, 15], 9) == [0, 1]
-    assert two_sum([3, 2, 4], 6) == [1, 2]
-    assert two_sum([3, 3], 6) == [0, 1]
-    assert two_sum([], 9) == []  # 空の配列
-    assert two_sum([2, 7, 11, 15], 10) == []  # ターゲット値が存在しない
-    assert two_sum([2, 7, 2, 15], 4) == [0, 2] #配列に重複した数値が含まれる場合
-
-
 if __name__ == '__main__':
     main()
