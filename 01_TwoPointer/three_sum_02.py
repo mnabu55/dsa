@@ -1,4 +1,5 @@
 '''
+# LeetCode Problem: 15. 3Sum
 Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
 Notice that the solution set must not contain duplicate triplets.
@@ -14,6 +15,27 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
 The distinct triplets are [-1,0,1] and [-1,-1,2].
 Notice that the order of the output and the order of the triplets does not matter.
 
+Approach: Two-Pointer Technique
+This approach combines sorting and pointers. It has a time complexity of O(n log n).
+
+Utilizing Pointers
+After sorting the array, we'll loop through it, fixing each element nums[i] as the first element of a potential triplet. Then, use two pointers "left" and "fright" for the rest of the array.
+
+The left pointer starts at i + 1.
+The right pointer starts at the end of the array.
+
+Using these two pointers, we'll search for combinations where the sum of nums[i] + nums[left] + nums[right] equals zero.
+
+
+# approach: Two Pointer Technique
+ソートとポインタを組み合わせる
+O(n log n) の計算量がかかります。
+
+ポインタの活用
+ソートされた配列をループし、各要素 nums[i] を最初の要素として固定します。次に、残りの配列に対して、2つのポインタ（left と right）を使用します。
+left ポインタは i + 1 から開始します。
+right ポインタは配列の末尾から開始します。
+この2つのポインタを使い、nums[i] + nums[left] + nums[right] の合計がゼロになる組み合わせを探します。
 '''
 def three_sum(nums):
     # Replace this placeholder return statement with your code
