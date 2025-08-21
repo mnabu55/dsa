@@ -36,24 +36,28 @@ import math
 class Solution:
 
     def __init__(self, weights: List[int]):
-        self.prefix_sums = []
-        self.prefix_sum = 0
+        self.running_sums = []
+        running_sum = 0
+
         for w in weights:
-            self.prefix_sum += w
-            self.prefix_sums.append(self.prefix_sum)
+            running_sum += w
+            self.running_sums.append(running_sum)
+        
+        self.total_sum = running_sum
 
     def pickIndex(self) -> int:
-        target = random.uniform(0, self.prefix_sum)
-        n = len(self.prefix_sums)
-        low, high = 0, n - 1
+        target = random.randint(1, self.total_sum)
+        low = 0
+        high = len(self.running_sums)
+
         while low < high:
-            mid = low + math.ceil((high - low) / 2)
-            if self.prefix_sums[mid] >= target:
-                high = mid - 1
+            mid = low + (high - low) // 2
+            if target > self.running_sums[mid]:
+                low = mid + 1
             else:
-                low = mid
+                high = mid
         
-        return high
+        return low
 
 
 # Your Solution object will be instantiated and called as such:
