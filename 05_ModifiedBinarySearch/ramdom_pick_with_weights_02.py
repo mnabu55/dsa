@@ -29,21 +29,38 @@
 # - O(N) to store the prefix sum array.
 
 from typing import List
+import random
+import math
+
 
 class Solution:
 
     def __init__(self, weights: List[int]):
         self.prefix_sums = []
-        prefix_sum = 0
+        self.prefix_sum = 0
         for w in weights:
-            prefix_sum += w
-            self.prefix_sums.append(prefix_sum)
+            self.prefix_sum += w
+            self.prefix_sums.append(self.prefix_sum)
 
     def pickIndex(self) -> int:
-        pass
+        target = random.uniform(0, self.prefix_sum)
+        n = len(self.prefix_sums)
+        low, high = 0, n - 1
+        while low < high:
+            mid = low + math.ceil((high - low) / 2)
+            if self.prefix_sums[mid] >= target:
+                high = mid - 1
+            else:
+                low = mid
+        
+        return high
 
 
 # Your Solution object will be instantiated and called as such:
 w = [1, 3, 2]
 obj = Solution(w)
-param_1 = obj.pickIndex()
+print(obj.pickIndex())
+print(obj.pickIndex())
+print(obj.pickIndex())
+print(obj.pickIndex())
+print(obj.pickIndex())
