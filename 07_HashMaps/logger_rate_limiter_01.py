@@ -42,13 +42,23 @@ def main():
         [17,"hello world"],
         [25,"i need coffee"]
     ]
+    answers = [
+        True,
+        False,
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+    ]
 
     request_logger = RequestLogger(7)
 
-    for timestamp, request in requests:
+    for (timestamp, request), answer in zip(requests, answers):
         result = request_logger.message_request_decision(timestamp, request)
         print(f"timestamp: {timestamp},\trequest: {request}\t-> decision: {result}")
-
+        assert result == answer
 
 if __name__ == "__main__":
     main()
