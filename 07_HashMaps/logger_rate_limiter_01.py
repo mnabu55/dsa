@@ -8,22 +8,18 @@
 
 class RequestLogger:
     def __init__(self, time_limit: int):
-        self.messages = {}
-        self.time_limit = time_limit
+        self.requests = {}
+        self.limit = time_limit
 
     # This function decides whether the message request should be accepted or rejected
     def message_request_decision(self, timestamp: int, request: str) -> bool:
-        if request not in self.messages:
-            # new message has arrived
-            self.messages[request] = timestamp
+        if request not in self.requests or timestamp - self.requests[request] >= self.limit:
+            self.requests[request] = timestamp
             return True
-        
-        # known message has arrived
-        last_timestamp = self.messages[request]
-        self.messages[request] = timestamp
-        if timestamp - last_timestamp > self.time_limit:
-            return True
-        return False
+
+        else:
+            return False
+
 
 
 def main():
