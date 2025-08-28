@@ -31,7 +31,5 @@ def main():
         assert actual == expected
 
 
-class Test
-
 if __name__ == "__main__":
     main()
