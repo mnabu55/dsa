@@ -1,6 +1,3 @@
-
-
-
 from collections import Counter
 import heapq
 
@@ -27,8 +24,10 @@ def reorganize_string(str):
     while len(most_freq_chars) > 0 or previous:
         count, char = heapq.heappop(most_freq_chars)
         result = result + char
-       # decrement the character count, as we've now used one occurrence of it
-        count = count + 1   # as we store negative character counts, adding 1 is actually a decrement operation
+        # decrement the character count, as we've now used one occurrence of it
+        count = (
+            count + 1
+        )  # as we store negative character counts, adding 1 is actually a decrement operation
 
         # pushing the char back to heap
         if previous:
@@ -53,7 +52,6 @@ def main():
         print(f"s: {s}")
         print(f"actual: {actual},\texpected: {expected}")
         assert actual == expected
-
 
 
 if __name__ == "__main__":
