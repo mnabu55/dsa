@@ -1,4 +1,5 @@
 # Function to find the minimum characters to append to string s
+# to make string t a subsequence of s
 
 
 def min_chars_to_append(s, t):
