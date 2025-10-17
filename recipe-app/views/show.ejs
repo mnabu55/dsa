@@ -1,0 +1,34 @@
+<%- include('partials/header', { title: recipe.title }) %>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2 class="card-title">
+                <%= recipe.title %>
+            </h2>
+            <p class="text-muted">
+                <%= recipe.description %>
+            </p>
+
+            <h5>材料</h5>
+            <ul>
+                <% recipe.ingredients.forEach(i=> { %>
+                    <li>
+                        <%= i %>
+                    </li>
+                    <% }) %>
+            </ul>
+
+            <h5>作り方</h5>
+            <ol>
+                <% recipe.steps.forEach(s=> { %>
+                    <li>
+                        <%= s %>
+                    </li>
+                    <% }) %>
+            </ol>
+
+            <a class="btn btn-secondary" href="/">戻る</a>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
