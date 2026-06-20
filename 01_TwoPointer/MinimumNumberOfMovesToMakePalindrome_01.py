@@ -1,6 +1,18 @@
+'''
+Given a string s, return the minimum number of moves required to transform s into a palindrome. In each move, you can swap any two adjacent characters in s.
+
+Note: The input string is guaranteed to be convertible into a palindrome.
+
+Constraints:
+
+-1 ≤ s.length ≤ 2000
+-s consists of only lowercase English letters.
+-s is guaranteed to be converted into a palindrome in a finite number of moves.
+'''
+
 def min_moves_to_make_palindrome(s):
     s = list(s)
-
+    
     moves = 0
 
     i, j = 0, len(s) - 1
@@ -20,16 +32,14 @@ def min_moves_to_make_palindrome(s):
 
     return moves
 
-
 # Driver code
 def main():
     strings = ["ccxx", "arcacer", "w", "ooooooo", "eggeekgbbeg"]
-
+    
     for index, string in enumerate(strings):
         print(f"{index + 1}.\ts: {string}")
         print(f"\tMoves: {min_moves_to_make_palindrome(string)}")
-        print("-" * 100)
-
+        print('-' * 100)
 
 if __name__ == "__main__":
     main()
